@@ -62,4 +62,57 @@ m3
 anova(m3)
 summary(m3)
 
-
+m4 = lm(co2_flux ~ (Tau + H + LE +
+          rand_err_LE + co2_flux + h2o_flux + rand_err_h2o_flux + 
+          co2_mole_fraction + wind_speed + T. + x_offset + un_Tau + 
+          un_H + un_LE + un_co2_flux + un_h2o_flux + co2.1)^2, data = tbl)
+m4
+anova(m4)
+summary(m4)
+m5 = lm(co2_flux ~ Tau + H + LE + rand_err_LE + h2o_flux + rand_err_h2o_flux + co2_mole_fraction +                
+          wind_speed + T. + x_offset + un_Tau + un_H + un_LE + un_co2_flux + un_h2o_flux + co2.1 +                                
+          Tau:H + Tau:LE + Tau:rand_err_LE + co2_flux:Tau + Tau:h2o_flux + Tau:rand_err_h2o_flux +
+          Tau:co2_mole_fraction + Tau:wind_speed + Tau:T. + Tau:x_offset + Tau:un_Tau + Tau:un_H +
+          Tau:un_LE + Tau:un_co2_flux + Tau:un_h2o_flux + Tau:co2.1 + H:LE + H:rand_err_LE + co2_flux:H +                          
+          H:h2o_flux + H:rand_err_h2o_flux + H:co2_mole_fraction + H:wind_speed + H:T. +                          
+          H:x_offset + H:un_Tau + H:un_H + H:un_LE + H:un_co2_flux + H:un_h2o_flux + H:co2.1 +                              
+          LE:rand_err_LE + co2_flux:LE + LE:h2o_flux + LE:rand_err_h2o_flux + LE:co2_mole_fraction +                 
+          LE:wind_speed + LE:T. + LE:x_offset + LE:un_Tau + LE:un_H + LE:un_LE + LE:un_co2_flux + LE:un_h2o_flux +                        
+          LE:co2.1 + co2_flux:rand_err_LE + rand_err_LE:rand_err_h2o_flux + rand_err_LE:co2_mole_fraction +        
+          rand_err_LE:wind_speed + rand_err_LE:T. + rand_err_LE:x_offset + rand_err_LE:un_Tau +                  
+          rand_err_LE:un_LE + rand_err_LE:un_co2_flux + rand_err_LE:un_h2o_flux +              
+          rand_err_LE:co2.1+co2_flux:h2o_flux +co2_flux:rand_err_h2o_flux+co2_flux:co2_mole_fraction+            
+          co2_flux:wind_speed+co2_flux:T. +co2_flux:x_offset +co2_flux:un_Tau +co2_flux:un_H +                        
+          co2_flux:un_co2_flux +co2_flux:un_h2o_flux +co2_flux:co2.1 +h2o_flux:rand_err_h2o_flux+            
+          h2o_flux:co2_mole_fraction +h2o_flux:T. + h2o_flux:x_offset +h2o_flux:un_Tau + h2o_flux:un_H +                        
+          h2o_flux:un_h2o_flux +rand_err_h2o_flux:co2_mole_fraction +         
+          rand_err_h2o_flux:x_offset +rand_err_h2o_flux:un_H +               
+          rand_err_h2o_flux:un_co2_flux + co2_mole_fraction:wind_speed + co2_mole_fraction:T. +co2_mole_fraction:x_offset +           
+          co2_mole_fraction:un_LE +co2_mole_fraction:un_co2_flux +        
+          wind_speed:un_H +wind_speed:un_co2_flux  + T.:un_co2_flux +x_offset:un_LE + un_LE:un_co2_flux, data = tbl)
+m5
+anova(m5)        
+summary(m5)
+m6 = lm(co2_flux ~ H + LE + rand_err_LE + h2o_flux + rand_err_h2o_flux + T. + x_offset + un_Tau + un_H + un_co2_flux +                                 
+           Tau:un_H +
+          Tau:un_LE + Tau:un_co2_flux + Tau:un_h2o_flux + Tau:co2.1 + H:LE + H:rand_err_LE + co2_flux:H +                          
+          H:h2o_flux + H:rand_err_h2o_flux + H:co2_mole_fraction + H:wind_speed + H:T. +                          
+          H:x_offset + H:un_Tau + H:un_H + H:un_LE + H:un_co2_flux +  co2_flux:LE + LE:h2o_flux +                 
+          LE:wind_speed + LE:un_co2_flux + co2_flux:rand_err_LE + rand_err_LE:T. + rand_err_LE:x_offset + rand_err_LE:un_Tau +                  
+          rand_err_LE:un_co2_flux + co2_flux:h2o_flux +co2_flux:rand_err_h2o_flux+          
+          co2_flux:wind_speed+co2_flux:T. +h2o_flux:T. + rand_err_h2o_flux:co2_mole_fraction + rand_err_h2o_flux:un_H +               
+          rand_err_h2o_flux:un_co2_flux + co2_mole_fraction:T. +co2_mole_fraction:x_offset +           
+          co2_mole_fraction:un_co2_flux + wind_speed:un_H +wind_speed:un_co2_flux  + T.:un_co2_flux + un_LE:un_co2_flux, data = tbl)
+m6
+anova(m6)
+summary(m6)
+m7 = lm(co2_flux ~ H + T. + x_offset + un_H + un_co2_flux + Tau:un_H +
+          Tau:un_LE + Tau:un_co2_flux + Tau:un_h2o_flux + co2_flux:H +                          
+           H:wind_speed + H:T. +                          
+          H:x_offset + H:un_Tau + H:un_H + H:un_co2_flux +                 
+          LE:wind_speed + LE:un_co2_flux + co2_flux:wind_speed+co2_flux:T. +  rand_err_h2o_flux:un_co2_flux + 
+          co2_mole_fraction:T. +co2_mole_fraction:x_offset +           
+          co2_mole_fraction:un_co2_flux + wind_speed:un_H +wind_speed:un_co2_flux  + T.:un_co2_flux + un_LE:un_co2_flux, data = tbl)
+m7
+anova(m7)
+summary(m7)
